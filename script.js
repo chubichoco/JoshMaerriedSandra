@@ -3,45 +3,45 @@
 
   const envelope = document.getElementById("envelope");
   const envelopeImg = document.getElementById("envelope-img");
+  const envelopeVideo = document.getElementById("envelope-video");
   const envelopeScreen = document.getElementById("page-0");
-  const paper = document.getElementById("paper");
   const goBack = document.getElementById("go-back");
-  const page0 = document.getElementById("page-0");
-  const page1 = document.getElementById("page-1");
-
-  const CLOSED_SRC = "assets/envelope-closed.png";
-  const OPEN_SRC = "assets/envelope-open.png";
-  new Image().src = OPEN_SRC;
+  const pages = {
+    "#page-0": document.getElementById("page-0"),
+    "#page-1": document.getElementById("page-1"),
+    "#page-2": document.getElementById("page-2"),
+  };
 
   function showPage(hash) {
-    const isPage1 = hash === "#page-1";
-    page0.classList.toggle("active", !isPage1);
-    page1.classList.toggle("active", isPage1);
+    const target = pages[hash] ? hash : "#page-0";
+    for (const [key, el] of Object.entries(pages)) {
+      el.classList.toggle("active", key === target);
+    }
   }
 
   function resetEnvelope() {
-    envelope.classList.remove("opening");
+    envelope.classList.remove("opening", "video-active", "zooming");
     envelopeScreen.classList.remove("leaving");
-    paper.classList.remove("pop", "zoom");
-    envelopeImg.src = CLOSED_SRC;
+    envelopeVideo.pause();
+    envelopeVideo.currentTime = 0;
   }
 
   envelope.addEventListener("click", () => {
     envelope.classList.add("opening");
     setTimeout(() => {
-      envelopeImg.src = OPEN_SRC;
-      envelope.classList.remove("opening");
-    }, 350);
+      envelope.classList.add("video-active");
+      envelopeVideo.currentTime = 0;
+      envelopeVideo.play();
+    }, 300);
     setTimeout(() => {
-      paper.classList.add("pop");
-    }, 650);
+      envelope.classList.add("zooming");
+    }, 1100);
     setTimeout(() => {
-      paper.classList.add("zoom");
       envelopeScreen.classList.add("leaving");
-    }, 1150);
+    }, 1700);
     setTimeout(() => {
       location.hash = "#page-1";
-    }, 1650);
+    }, 2000);
   });
 
   goBack.addEventListener("click", () => {
@@ -51,6 +51,22 @@
 
   window.addEventListener("hashchange", () => showPage(location.hash));
   showPage(location.hash || "#page-0");
+
+  // song disc
+  const songDisc = document.getElementById("song-disc");
+  const songAudio = document.getElementById("song-audio");
+  if (songDisc && songAudio) {
+    songDisc.addEventListener("click", () => {
+      if (songAudio.paused) {
+        songAudio.play().catch(() => {});
+      } else {
+        songAudio.pause();
+      }
+    });
+    songAudio.addEventListener("play", () => songDisc.classList.add("playing"));
+    songAudio.addEventListener("pause", () => songDisc.classList.remove("playing"));
+    songAudio.addEventListener("ended", () => songDisc.classList.remove("playing"));
+  }
 
   // countdown
   function timeParts(target, now) {

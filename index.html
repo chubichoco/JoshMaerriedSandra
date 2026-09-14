@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Parisienne&family=Jost:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=40" />
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 
     <button type="button" id="envelope" class="envelope" aria-label="Tap envelope to open your invitation">
       <img id="envelope-img" class="envelope-img" src="assets/envelope-closed.png" alt="" />
-      <div class="paper" id="paper" aria-hidden="true"></div>
+      <video id="envelope-video" class="envelope-video" src="assets/envelope-open.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
     </button>
 
     <p class="cta-label">tap envelope to open</p>
@@ -39,21 +39,50 @@
 
     <div class="invitation-scroll">
       <div class="rsvp-wrap">
-        <a class="rsvp-card" href="https://docs.google.com/forms/d/1N4yijdkmJqS4JCAT8HbmVimhJuXdrWXO6EnhLT2mRJM" target="_blank" rel="noopener">
-          <img src="assets/rsvp-card.png" alt="Kindly RSVP — click here" />
+        <img class="floral-corner" src="assets/floral-corner-tr.png" alt="" aria-hidden="true" />
+        <div class="rsvp-envelope">
+          <img src="assets/opened-envelope-clean.png?v=2" alt="" />
+        </div>
+        <div class="rsvp-letter-pop">
+          <a class="rsvp-letter" target="_blank" rel="noopener" aria-label="RSVP — click here">
+            <img src="assets/letter-1-clean.png" alt="A Date to Remember" />
+          </a>
+        </div>
+        <a class="details-badge" href="#page-2" aria-label="View wedding details">
+          <img src="assets/details-heart.png" alt="" />
         </a>
         <div class="polaroid-strip" aria-hidden="true">
           <img src="assets/wed-1.jpg" alt="" />
-          <img src="assets/wed-2.jpg" alt="" />
+          <img src="assets/wed-2.jpg?v=2" alt="" />
           <img src="assets/wed-3.jpg" alt="" />
         </div>
+        <img class="locket" src="assets/locket-clean.png" alt="" aria-hidden="true" />
       </div>
+
+      <button type="button" id="song-disc" class="disc-wrap" aria-label="Play our song">
+        <div class="disc-outer">
+          <div class="disc-spin"></div>
+          <div class="disc-bevel"></div>
+          <div class="disc-label">
+            <span class="disc-letter">J</span>
+            <svg class="disc-heart" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5C12 20.5 1.6 13.9 1.6 7.6 1.6 4.2 4.2 1.8 7.2 1.8c2 0 3.8 1.1 4.8 2.9 1-1.8 2.8-2.9 4.8-2.9 3 0 5.6 2.4 5.6 5.8C22.4 13.9 12 20.5 12 20.5Z"/></svg>
+            <span class="disc-letter">S</span>
+          </div>
+        </div>
+        <img class="disc-flowers" src="assets/disc-flowers-left.png" alt="" aria-hidden="true" />
+        <svg class="disc-caption" viewBox="0 0 560 520" aria-hidden="true">
+          <defs><path id="discArc" d="M 334 441 A 218 218 0 0 0 483 305" fill="none"/></defs>
+          <text font-family="Cormorant Garamond, Georgia, serif" font-size="21" letter-spacing="4.5" fill="#3a2523" text-anchor="middle">
+            <textPath href="#discArc" startOffset="50%">TAP TO PLAY</textPath>
+          </text>
+        </svg>
+      </button>
 
       <p class="date-line">10 april 2027</p>
       <p class="venue-line">St Clements Church, Iloilo City</p>
 
       <div class="countdown" id="countdown" aria-live="polite">
-        <p class="countdown-eyebrow">the countdown is on!</p>
+        <p class="countdown-eyebrow">Our forever begins in</p>
         <div class="countdown-numbers">
           <span class="countdown-num" id="cd-days">00</span><span class="countdown-colon">:</span>
           <span class="countdown-num" id="cd-hours">00</span><span class="countdown-colon">:</span>
@@ -64,6 +93,100 @@
           <span>days</span><span>hours</span><span>minutes</span><span>seconds</span>
         </div>
       </div>
+
+      <p class="with-love">with love</p>
+      <p class="closing-names">Josh &amp; Sandra</p>
+    </div>
+    <audio id="song-audio" src="assets/our-song.mp3" preload="none"></audio>
+  </section>
+
+  <!-- PAGE 2 — details -->
+  <section id="page-2" class="screen details-screen">
+    <div class="floral floral-inv-tl" aria-hidden="true">
+      <svg viewBox="0 0 120 120"><use href="#sprig"/></svg>
+    </div>
+    <div class="floral floral-inv-br" aria-hidden="true">
+      <svg viewBox="0 0 120 120"><use href="#sprig"/></svg>
+    </div>
+
+    <a href="#page-1" class="go-back">&lsaquo; go back</a>
+
+    <div class="details-scroll">
+      <h1 class="details-heading">The Details</h1>
+
+      <div class="details-card">
+        <p class="details-card-eyebrow">date &amp; location</p>
+
+        <div class="details-block">
+          <p class="details-block-label">Date</p>
+          <p class="details-block-body">10 April 2027</p>
+        </div>
+
+        <div class="details-block">
+          <p class="details-block-label">Ceremony</p>
+          <p class="details-block-body">[Ceremony time] &middot; St Clements Church<br />[Street address]<br />Iloilo City, Philippines</p>
+        </div>
+
+        <div class="details-block">
+          <p class="details-block-label">Reception</p>
+          <p class="details-block-body">[Reception time] &middot; Sam&rsquo;s 21 Hotel<br />Benigno Aquino Avenue (Diversion Road)<br />Mandurriao, Iloilo City, Philippines</p>
+        </div>
+      </div>
+
+      <div class="details-card">
+        <p class="details-card-eyebrow">our timeline</p>
+        <ul class="timeline-list">
+          <li><span class="timeline-time">[time]</span><span class="timeline-event">Guests Arrive</span></li>
+          <li><span class="timeline-time">[time]</span><span class="timeline-event">Ceremony</span></li>
+          <li><span class="timeline-time">[time]</span><span class="timeline-event">Cocktails</span></li>
+          <li><span class="timeline-time">[time]</span><span class="timeline-event">Reception &amp; Dinner</span></li>
+          <li><span class="timeline-time">[time]</span><span class="timeline-event">Party</span></li>
+          <li><span class="timeline-time">[time]</span><span class="timeline-event">Send-Off</span></li>
+        </ul>
+      </div>
+
+      <div class="details-card">
+        <p class="details-card-eyebrow">gifts</p>
+        <p class="details-card-intro">Your presence is truly the greatest gift. If you&rsquo;d like to give something extra, a monetary gift is always appreciated &mdash; just scan below.</p>
+        <div class="gift-qr" aria-hidden="true">
+          <svg viewBox="0 0 21 21">
+            <rect x="0" y="0" width="7" height="7" />
+            <rect x="1" y="1" width="5" height="5" fill="var(--ivory)" />
+            <rect x="2" y="2" width="3" height="3" />
+            <rect x="14" y="0" width="7" height="7" />
+            <rect x="15" y="1" width="5" height="5" fill="var(--ivory)" />
+            <rect x="16" y="2" width="3" height="3" />
+            <rect x="0" y="14" width="7" height="7" />
+            <rect x="1" y="15" width="5" height="5" fill="var(--ivory)" />
+            <rect x="2" y="16" width="3" height="3" />
+            <rect x="9" y="0" width="1" height="1" /><rect x="11" y="0" width="1" height="1" /><rect x="9" y="2" width="1" height="1" />
+            <rect x="12" y="3" width="1" height="1" /><rect x="9" y="4" width="1" height="1" /><rect x="11" y="5" width="1" height="1" />
+            <rect x="9" y="9" width="1" height="1" /><rect x="10" y="9" width="1" height="1" /><rect x="12" y="9" width="1" height="1" />
+            <rect x="9" y="10" width="1" height="1" /><rect x="11" y="11" width="1" height="1" /><rect x="13" y="10" width="1" height="1" />
+            <rect x="9" y="12" width="1" height="1" /><rect x="12" y="12" width="1" height="1" /><rect x="14" y="9" width="1" height="1" />
+            <rect x="16" y="9" width="1" height="1" /><rect x="18" y="9" width="1" height="1" /><rect x="15" y="11" width="1" height="1" />
+            <rect x="17" y="11" width="1" height="1" /><rect x="19" y="11" width="1" height="1" /><rect x="16" y="13" width="1" height="1" />
+            <rect x="18" y="13" width="1" height="1" /><rect x="2" y="9" width="1" height="1" /><rect x="4" y="9" width="1" height="1" />
+            <rect x="6" y="9" width="1" height="1" /><rect x="2" y="11" width="1" height="1" /><rect x="5" y="11" width="1" height="1" />
+            <rect x="3" y="13" width="1" height="1" /><rect x="9" y="16" width="1" height="1" /><rect x="11" y="16" width="1" height="1" />
+            <rect x="9" y="18" width="1" height="1" /><rect x="12" y="18" width="1" height="1" /><rect x="14" y="16" width="1" height="1" />
+            <rect x="16" y="17" width="1" height="1" /><rect x="18" y="16" width="1" height="1" /><rect x="14" y="19" width="1" height="1" />
+            <rect x="17" y="19" width="1" height="1" /><rect x="19" y="19" width="1" height="1" />
+          </svg>
+        </div>
+        <p class="gift-qr-caption">[Add your GCash / bank transfer QR code here]</p>
+      </div>
+
+      <div class="details-card">
+        <p class="details-card-eyebrow">other details</p>
+
+        <div class="details-block">
+          <p class="details-block-label">Dress Code</p>
+          <p class="details-block-body">[Dress code note]</p>
+        </div>
+      </div>
+
+      <p class="contact-line">For any questions, please contact us at:<br /><a href="mailto:osh.akol@gmail.com">osh.akol@gmail.com</a></p>
 
       <p class="with-love">with love</p>
       <p class="closing-names">Josh &amp; Sandra</p>
@@ -85,6 +208,6 @@
   </defs>
 </svg>
 
-<script src="script.js"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>
