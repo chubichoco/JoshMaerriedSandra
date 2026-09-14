@@ -6,6 +6,8 @@
   const envelopeVideo = document.getElementById("envelope-video");
   const envelopeScreen = document.getElementById("page-0");
   const goBack = document.getElementById("go-back");
+  const songDisc = document.getElementById("song-disc");
+  const songAudio = document.getElementById("song-audio");
   const pages = {
     "#page-0": document.getElementById("page-0"),
     "#page-1": document.getElementById("page-1"),
@@ -27,6 +29,7 @@
   }
 
   envelope.addEventListener("click", () => {
+    songAudio?.play().catch(() => {});
     envelope.classList.add("opening");
     setTimeout(() => {
       envelope.classList.add("video-active");
@@ -53,9 +56,10 @@
   showPage(location.hash || "#page-0");
 
   // song disc
-  const songDisc = document.getElementById("song-disc");
-  const songAudio = document.getElementById("song-audio");
   if (songDisc && songAudio) {
+    // best-effort true autoplay; browsers block this without a prior user
+    // gesture, so the envelope tap above is the reliable fallback trigger
+    songAudio.play().catch(() => {});
     songDisc.addEventListener("click", () => {
       if (songAudio.paused) {
         songAudio.play().catch(() => {});
