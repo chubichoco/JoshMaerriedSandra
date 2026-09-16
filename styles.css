@@ -500,7 +500,7 @@ body {
 /* The script "S" carries extra left-side bearing in this font, so the
    equal flex gap reads as more space than the "J" side — tighten it. */
 .disc-letter:last-child {
-  margin-left: -1.8cqw;
+  margin-left: -2.8cqw;
 }
 
 .disc-heart {
