@@ -45,7 +45,10 @@ body {
   width: 100%;
   max-width: 430px;
   min-height: 100vh;
-  background: var(--ivory);
+  background:
+    radial-gradient(560px 420px at -8% -6%, rgba(110, 42, 53, 0.11), transparent 60%),
+    radial-gradient(560px 420px at 108% 106%, rgba(110, 42, 53, 0.09), transparent 60%),
+    var(--ivory);
   overflow: hidden;
 }
 
@@ -92,7 +95,7 @@ body {
 
 .display-names {
   font-family: var(--font-script);
-  font-size: 75px;
+  font-size: 70px;
   color: var(--burgundy);
   margin: 0 0 28px;
   text-align: center;
@@ -376,8 +379,10 @@ body {
 .floral-corner {
   position: absolute;
   z-index: 0;
-  top: 40%;
-  left: -16%;
+  /* top: 40%;
+  left: -16%; */
+      top: 35%;
+    left: 1%;
   width: 36%;
   height: auto;
   filter: drop-shadow(0 6px 14px rgba(32, 30, 29, 0.2));
@@ -414,7 +419,7 @@ body {
 
 .disc-wrap {
   position: absolute;
-  top: 31%;
+  top: 37%;
   left: -8%;
   container-type: inline-size;
   width: 50%;
@@ -484,7 +489,7 @@ body {
 }
 
 .disc-letter {
-  font-family: var(--font-display);
+  font-family: var(--font-script);
   font-size: 15.36cqw;
   font-weight: 500;
   font-style: italic;
@@ -492,7 +497,14 @@ body {
   line-height: 1;
 }
 
+/* The script "S" carries extra left-side bearing in this font, so the
+   equal flex gap reads as more space than the "J" side — tighten it. */
+.disc-letter:last-child {
+  margin-left: -1.8cqw;
+}
+
 .disc-heart {
+  font-family: var(--font-script);
   width: 6.07cqw;
   aspect-ratio: 24 / 22;
   fill: #8d0f2c;
@@ -566,7 +578,7 @@ body {
 .rsvp-letter-pop {
   position: absolute;
   z-index: 2;
-  left: 16%;
+  left: 10%;
   top: 10%;
   width: 68%;
   opacity: 0;
@@ -594,25 +606,73 @@ body {
 
 .rsvp-letter {
   display: block;
+  perspective: 1200px;
   transition: transform 0.25s ease;
-}
-
-.rsvp-letter img {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 10px 18px rgba(58, 46, 39, 0.3));
 }
 
 .rsvp-letter:hover {
   transform: translateY(-3px) scale(1.02);
 }
 
+.rsvp-letter-flip {
+  display: block;
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+.screen.active .rsvp-letter-flip {
+  animation: letter-flip 0.9s cubic-bezier(0.65, 0, 0.35, 1) 10s both;
+}
+
+@keyframes letter-flip {
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+.rsvp-letter-face {
+  display: block;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.rsvp-letter-front img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 18px rgba(58, 46, 39, 0.3));
+}
+
+.rsvp-letter-back {
+  position: absolute;
+  inset: 14% 10%;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8%;
+  background: var(--ivory);
+  border: 1px solid var(--pink);
+  box-shadow:
+    inset 0 0 0 4px var(--ivory),
+    inset 0 0 0 5px var(--pink),
+    0 10px 18px rgba(58, 46, 39, 0.3);
+}
+
+.rsvp-letter-back-text {
+  font-family: var(--font-script);
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--burgundy);
+  text-align: center;
+}
+
 .polaroid-strip {
   position: absolute;
   z-index: 5;
   left: 74%;
-  top: -34%;
+  top: 22%;
   width: 30%;
   background: #fdfcfa;
   padding: 5px 5px 14px;
@@ -688,14 +748,14 @@ body {
   font-weight: 500;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--olive);
+  color: var(--burgundy);
   margin: 34px 0 6px;
 }
 
 .closing-names {
   font-family: var(--font-script);
   font-size: 46px;
-  color: var(--olive-deep);
+  color: var(--burgundy);
   margin: 0 0 24px;
   line-height: 1;
 }
