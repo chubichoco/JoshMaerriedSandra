@@ -116,6 +116,9 @@
   // ponytail: smallest runnable check for the pure countdown math, no test framework
   if (new URLSearchParams(location.search).has("selftest")) {
     const t = timeParts(new Date("2027-01-02T01:01:30"), new Date("2027-01-01T00:00:00"));
+    console.assert(t.days === 1 && t.hours === 1 && t.mins === 1 && t.secs === 30, "timeParts failed", t);
     const zero = timeParts(new Date("2020-01-01"), new Date("2025-01-01"));
+    console.assert(zero.days === 0 && zero.hours === 0, "timeParts should clamp to zero for past dates", zero);
+    console.log("selftest passed");
   }
 })();
