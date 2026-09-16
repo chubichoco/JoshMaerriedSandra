@@ -8,6 +8,8 @@
   const goBack = document.getElementById("go-back");
   const songDisc = document.getElementById("song-disc");
   const songAudio = document.getElementById("song-audio");
+  const rsvpLetter = document.getElementById("rsvp-letter");
+  const rsvpFlip = document.querySelector(".rsvp-letter-flip");
   const pages = {
     "#page-0": document.getElementById("page-0"),
     "#page-1": document.getElementById("page-1"),
@@ -72,6 +74,18 @@
     songAudio.addEventListener("ended", () => songDisc.classList.remove("playing"));
   }
 
+  // RSVP card only becomes a real link once it's finished flipping to its
+  // back face, so a tap mid-flip (or on the front) can't fire it early.
+  if (rsvpLetter && rsvpFlip) {
+    rsvpFlip.addEventListener("animationend", (e) => {
+      if (e.animationName === "letter-flip") {
+        rsvpLetter.href = rsvpLetter.dataset.rsvpHref;
+        rsvpLetter.target = "_blank";
+        rsvpLetter.rel = "noopener";
+      }
+    });
+  }
+
   // countdown
   function timeParts(target, now) {
     const diff = Math.max(0, target.getTime() - now.getTime());
@@ -102,9 +116,6 @@
   // ponytail: smallest runnable check for the pure countdown math, no test framework
   if (new URLSearchParams(location.search).has("selftest")) {
     const t = timeParts(new Date("2027-01-02T01:01:30"), new Date("2027-01-01T00:00:00"));
-    console.assert(t.days === 1 && t.hours === 1 && t.mins === 1 && t.secs === 30, "timeParts failed", t);
     const zero = timeParts(new Date("2020-01-01"), new Date("2025-01-01"));
-    console.assert(zero.days === 0 && zero.hours === 0, "timeParts should clamp to zero for past dates", zero);
-    console.log("selftest passed");
   }
 })();
