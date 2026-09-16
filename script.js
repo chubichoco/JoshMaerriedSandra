@@ -72,6 +72,21 @@
     songAudio.addEventListener("play", () => songDisc.classList.add("playing"));
     songAudio.addEventListener("pause", () => songDisc.classList.remove("playing"));
     songAudio.addEventListener("ended", () => songDisc.classList.remove("playing"));
+
+    // Pause while the tab isn't visible, and only resume on return if it
+    // was us who paused it — a song the user paused manually stays paused.
+    let pausedByVisibility = false;
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        if (!songAudio.paused) {
+          songAudio.pause();
+          pausedByVisibility = true;
+        }
+      } else if (pausedByVisibility) {
+        pausedByVisibility = false;
+        songAudio.play().catch(() => {});
+      }
+    });
   }
 
   // RSVP card only becomes a real link once it's finished flipping to its
