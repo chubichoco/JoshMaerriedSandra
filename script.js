@@ -19,6 +19,7 @@
   function showPage(hash) {
     const target = pages[hash] ? hash : "#page-0";
     for (const [key, el] of Object.entries(pages)) {
+      if (!el) continue;
       el.classList.toggle("active", key === target);
     }
   }
