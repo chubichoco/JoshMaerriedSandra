@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Ready to celebrate?</title>
+<meta name="description" content="A love letter from Josh &amp; Sandra · Saturday, 10 April 2027 · St Clements Church, Iloilo City" />
+<meta property="og:title" content="Ready to celebrate?" />
+<meta property="og:description" content="A love letter from Josh &amp; Sandra · 10 April 2027 · St Clements Church, Iloilo City" />
+<meta property="og:image" content="assets/img/envelope-closed.webp" />
+<meta name="theme-color" content="#f4efe8" />
+<link rel="icon" href="favicon.ico?v=3" sizes="any" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/luxurious-script-latin-400-normal.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin-400-normal.woff2" crossorigin />
+<link rel="preload" as="image" href="assets/img/envelope-closed.webp" />
+<link rel="stylesheet" href="css/styles.css?v=2" />
+</head>
+<body class="is-sealed">
+
+<a class="skip-link" href="#invite">Skip to invitation</a>
+
+<!-- Living backdrop: WebGL (or Canvas2D fallback) world, beat-reactive aura, paper grain -->
+<div class="backdrop" aria-hidden="true">
+  <div class="aura"></div>
+  <canvas id="world"></canvas>
+  <div class="grain"></div>
+</div>
+
+<main>
+
+  <!-- ============ SCENE 1 · THE ENVELOPE ============ -->
+  <section id="intro" class="intro" aria-label="Opening">
+    <p class="eyebrow intro-eyebrow">A Love Letter From</p>
+    <h1 class="script-title intro-names"><span>Josh</span> <span class="amp">&amp;</span> <span>Sandra</span></h1>
+
+    <button type="button" id="envelope" class="envelope" aria-label="Open your invitation">
+      <span class="envelope-tilt">
+        <img class="envelope-img" src="assets/img/envelope-closed.webp" width="900" height="495" alt="" />
+        <span class="envelope-shine"></span>
+      </span>
+      <video class="envelope-video" muted playsinline preload="auto" aria-hidden="true" tabindex="-1">
+        <source src="assets/media/envelope-open.webm" type="video/webm" />
+        <source src="assets/media/envelope-open.mp4" type="video/mp4" />
+      </video>
+    </button>
+
+    <p class="cta-label"><span class="cta-dot"></span>tap the envelope to open</p>
+  </section>
+
+  <!-- ============ SCENE 2 · THE INVITATION ============ -->
+  <div id="invite" class="invite" tabindex="-1">
+
+    <button type="button" id="go-back" class="go-back"><span aria-hidden="true">&lsaquo;</span> back to envelope</button>
+
+    <!-- Collage -->
+    <section class="hero" aria-label="Invitation">
+      <div class="collage" id="collage">
+        <img class="c-layer c-floral" data-depth="0.35" src="assets/img/floral-corner.webp" width="520" height="509" alt="" aria-hidden="true" />
+        <div class="c-layer c-envelope" data-depth="0.2">
+          <img src="assets/img/opened-envelope.webp" width="860" height="662" alt="" />
+        </div>
+
+        <div class="c-layer c-letter" data-depth="0.55">
+          <a class="letter" id="rsvp-letter" data-rsvp-href="https://docs.google.com/forms/d/1N4yijdkmJqS4JCAT8HbmVimhJuXdrWXO6EnhLT2mRJM" role="button" tabindex="0" aria-label="A date to remember. Tap to RSVP">
+            <span class="letter-flip">
+              <span class="letter-face letter-front">
+                <img src="assets/img/date-to-remember.webp" width="760" height="598" alt="A Date to Remember" />
+              </span>
+              <span class="letter-face letter-back">
+                <span class="letter-back-text">Click here if<br />you can make it!</span>
+              </span>
+            </span>
+          </a>
+        </div>
+
+        <div class="c-layer c-polaroids" data-depth="0.8" aria-hidden="true">
+          <img src="assets/img/wed-1.webp" alt="" />
+          <img src="assets/img/wed-2.webp" alt="" />
+          <img src="assets/img/wed-3.webp" alt="" />
+        </div>
+
+        <a class="c-layer c-details model-slot" data-model="heart" data-depth="0.7" href="#the-day" aria-label="The details: time, date and venue">
+          <img class="model-fallback" src="assets/img/details-heart.webp" width="360" height="305" alt="" />
+        </a>
+
+        <img class="c-layer c-locket" data-depth="1" src="assets/img/locket.webp" width="560" height="399" alt="" aria-hidden="true" />
+
+        <button type="button" id="song-disc" class="c-layer disc" data-depth="0.9" aria-label="Play our song" aria-pressed="false">
+          <span class="disc-glow"></span>
+          <span class="disc-record">
+            <span class="disc-grooves"></span>
+          </span>
+          <span class="disc-label"><span class="disc-letter">J</span><svg class="disc-heart" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5C12 20.5 1.6 13.9 1.6 7.6 1.6 4.2 4.2 1.8 7.2 1.8c2 0 3.8 1.1 4.8 2.9 1-1.8 2.8-2.9 4.8-2.9 3 0 5.6 2.4 5.6 5.8C22.4 13.9 12 20.5 12 20.5Z"/></svg><span class="disc-letter">S</span></span>
+          <span class="disc-bevel"></span>
+          <img class="disc-flowers" src="assets/img/disc-flowers.webp" alt="" aria-hidden="true" />
+          <svg class="disc-caption" viewBox="0 0 560 520" aria-hidden="true">
+            <defs><path id="discArc" d="M 334 441 A 218 218 0 0 0 483 305" fill="none"/></defs>
+            <text text-anchor="middle"><textPath href="#discArc" startOffset="50%">TAP TO PLAY</textPath></text>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ THE DAY: date, countdown, times & venues ============
+         Edit times here: data-time is 24-hour local Philippine time (e.g. "15:00").
+         Leave it empty to show "Time to follow". The countdown targets the ceremony. -->
+    <section class="day" id="the-day" aria-labelledby="day-title" data-reveal
+             data-date="2027-04-10" data-tz="+08:00">
+      <p class="eyebrow">The Day</p>
+      <h2 class="day-title" id="day-title">
+        <span class="day-weekday">Saturday</span>
+        <span class="day-big"><span>10</span><i aria-hidden="true"></i><span>April</span><i aria-hidden="true"></i><span>2027</span></span>
+      </h2>
+
+      <div class="model-slot rings-slot" data-model="rings" aria-hidden="true"></div>
+
+      <div class="countdown" aria-label="Countdown to the wedding">
+        <p class="eyebrow" id="cd-eyebrow">Our forever begins in</p>
+        <div class="cd-grid">
+          <span class="cd-glow" aria-hidden="true"></span>
+          <div class="cd-cell"><span class="cd-num" id="cd-days">000</span><span class="cd-label">days</span></div>
+          <div class="cd-cell"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">hours</span></div>
+          <div class="cd-cell"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">minutes</span></div>
+          <div class="cd-cell"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">seconds</span></div>
+        </div>
+        <p class="sr-only" id="cd-sr" aria-live="polite"></p>
+      </div>
+
+      <div class="events">
+        <article class="event" id="ev-ceremony" data-kind="ceremony" data-time="" data-duration="90">
+          <p class="event-kind">Ceremony</p>
+          <p class="event-time"><time class="event-time-value">Time to follow</time></p>
+          <h3 class="event-venue">St Clements Church</h3>
+          <p class="event-address">Iloilo City, Philippines</p>
+          <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=St%20Clements%20Church%2C%20Iloilo%20City" target="_blank" rel="noopener">Open in Maps <span aria-hidden="true">&rarr;</span></a>
+        </article>
+        <article class="event" id="ev-reception" data-kind="reception" data-time="" data-duration="240">
+          <p class="event-kind">Reception</p>
+          <p class="event-time"><time class="event-time-value">Time to follow</time></p>
+          <h3 class="event-venue">Sam&rsquo;s 21 Hotel</h3>
+          <p class="event-address">Benigno Aquino Avenue (Diversion Road)<br />Mandurriao, Iloilo City, Philippines</p>
+          <a class="event-link" href="https://www.google.com/maps/search/?api=1&amp;query=Sam%27s%2021%20Hotel%2C%20Mandurriao%2C%20Iloilo%20City" target="_blank" rel="noopener">Open in Maps <span aria-hidden="true">&rarr;</span></a>
+        </article>
+      </div>
+
+      <div class="day-actions">
+        <a class="ghost-btn" id="cal-google" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+        <a class="ghost-btn" id="cal-ics" href="#" download="josh-and-sandra-wedding.ics">Add to Apple / Outlook</a>
+      </div>
+      <canvas class="ribbon" id="ribbon" aria-hidden="true"></canvas>
+    </section>
+
+    <!-- ============ THE DETAILS (from the original page 2) ============
+         Fill in the blanks here; empty values show a neat "to follow" state.
+         • Timeline: data-time="15:00" (24-hour, Philippine time). Ceremony/Reception
+           fall back to the times set on the event cards above.
+         • Gifts: set data-qr to an image path, e.g. data-qr="assets/img/gift-qr.png".
+         • Dress code: put the text inside .dress-note. -->
+    <section class="details" id="details" aria-labelledby="details-title" data-reveal>
+      <p class="eyebrow">The Details</p>
+      <h2 class="section-title" id="details-title">Our <em>timeline</em></h2>
+
+      <div class="timeline-wrap" id="timeline">
+      <span class="tl-track" aria-hidden="true"><span class="tl-fill"></span></span>
+      <ol class="timeline">
+        <li class="tl-item" data-time=""><span class="tl-dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 20V9l7-5 7 5v11M9.5 20v-6h5v6"/></svg></span><span class="tl-body"><time class="tl-time">To follow</time><span class="tl-event">Guests Arrive</span></span></li>
+        <li class="tl-item" data-time="" data-from="ceremony"><span class="tl-dot" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 5l2-2 2 2"/></svg></span><span class="tl-body"><time class="tl-time">To follow</time><span class="tl-event">Ceremony</span></span></li>
+        <li class="tl-item" data-time=""><span class="tl-dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h6l-3 7zM8 11v8M5.5 19h5M13 4h6l-3 7zM16 11v8M13.5 19h5"/></svg></span><span class="tl-body"><time class="tl-time">To follow</time><span class="tl-event">Cocktails</span></span></li>
+        <li class="tl-item" data-time="" data-from="reception"><span class="tl-dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M16 21V3c-2 1-3 4-3 7h3"/></svg></span><span class="tl-body"><time class="tl-time">To follow</time><span class="tl-event">Reception &amp; Dinner</span></span></li>
+        <li class="tl-item" data-time=""><span class="tl-dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></span><span class="tl-body"><time class="tl-time">To follow</time><span class="tl-event">Party</span></span></li>
+        <li class="tl-item" data-time=""><span class="tl-dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></span><span class="tl-body"><time class="tl-time">To follow</time><span class="tl-event">Send-Off</span></span></li>
+      </ol>
+      </div>
+      <p class="tl-note" id="tl-note">Times to follow</p>
+
+      <div class="details-grid">
+        <!-- Other details: dress code palette (tap the image to view full size) -->
+        <div class="info-card dress">
+          <span class="card-eyebrow">Other details</span>
+          <p class="info-label">Dress Code</p>
+          <p class="dress-note" id="dress-note">Guests, please wear <strong>mauve taupe</strong>.</p>
+          <button type="button" class="palette-thumb" id="palette-open" aria-haspopup="dialog" aria-label="Our Wedding Palette: open full size">
+            <img src="assets/img/wedding-palette-card.webp" width="820" height="984" loading="lazy"
+                 alt="Our Wedding Palette, a guide to our special day: burgundy for the best man, matron of honor, maid of honor, groomsmen and bridesmaids; olive green for the parents of the bride and groom, flower boys, ring bearer, Bible bearer, coin bearer and flower girls; beige for principal and secondary sponsors; mauve taupe for guests. Different roles, one beautiful day." />
+            <span class="palette-zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L20 20M10.5 7.5v6M7.5 10.5h6"/></svg>Tap to view full size</span>
+          </button>
+          <ul class="swatches" aria-label="Palette by role">
+            <li><span class="sw" style="--sw:#915F6D"></span><span class="sw-name">Mauve Taupe</span><span class="sw-role">Guests</span></li>
+            <li><span class="sw" style="--sw:#C99F7B"></span><span class="sw-name">Beige</span><span class="sw-role">Principal &amp; secondary sponsors</span></li>
+            <li><span class="sw" style="--sw:#818427"></span><span class="sw-name">Olive Green</span><span class="sw-role">Parents, flower girls, flower boys, ring, Bible &amp; coin bearers</span></li>
+            <li><span class="sw" style="--sw:#430013"></span><span class="sw-name">Burgundy</span><span class="sw-role">Best man, matron &amp; maid of honor, groomsmen, bridesmaids</span></li>
+          </ul>
+        </div>
+        <!-- Gifts: tap to flip and reveal the QR code -->
+        <div class="gift" id="gift" data-qr="">
+          <button type="button" class="gift-card" id="gift-card" aria-pressed="false" aria-controls="gift-back" aria-label="Gifts: tap to show the QR code">
+            <span class="gift-flip">
+              <span class="gift-face gift-front">
+                <span class="card-eyebrow">Gifts</span>
+                <span class="gift-text">Your presence is truly the greatest gift. If you&rsquo;d like to give something extra, a monetary gift is always appreciated &mdash; just scan below.</span>
+                <span class="gift-cta">Tap to show QR code <span aria-hidden="true">&#8635;</span></span>
+              </span>
+              <span class="gift-face gift-back" id="gift-back">
+                <span class="gift-qr"><img id="gift-qr-img" alt="Monetary gift QR code (GCash / bank transfer)" hidden /><span class="gift-qr-empty" id="gift-qr-empty">QR code<br />coming soon</span></span>
+                <span class="gift-cta">Tap to flip back <span aria-hidden="true">&#8634;</span></span>
+              </span>
+            </span>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="contact">
+        <p class="contact-lead">For any questions, please contact us at</p>
+        <div class="contact-row">
+          <a class="contact-email" id="contact-email" href="mailto:osh.akol@gmail.com">osh.akol@gmail.com</a> or  <a class="contact-email" id="contact-email-2" href="mailto:silveosandra@gmail.com">silveosandra@gmail.com</a>
+          <button type="button" class="round-btn copy-btn" id="copy-email" aria-label="Copy email address"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="12" rx="2"/><path d="M5 16V6a2 2 0 0 1 2-2h8"/></svg></button>
+        </div>
+        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- Moments: 3D rotating photo frames (with CSS fallback) -->
+    <section class="moments" aria-label="Moments" data-reveal>
+      <p class="eyebrow">Moments</p>
+      <h2 class="section-title">A thousand years, <em>and counting</em></h2>
+      <div class="gallery" id="gallery">
+        <canvas class="gallery-canvas" id="gallery-canvas" aria-hidden="true"></canvas>
+        <ul class="gallery-fallback" id="gallery-fallback">
+          <li><figure><img src="assets/img/wed-1.webp" alt="Josh and Sandra holding hands at a seaside lookout" loading="lazy" /></figure></li>
+          <li><figure><img src="assets/img/wed-2.webp" alt="Josh and Sandra by a lake with a snow-capped mountain behind" loading="lazy" /></figure></li>
+          <li><figure><img src="assets/img/wed-3.webp" alt="Josh and Sandra holding hands between rows of a green tea field" loading="lazy" /></figure></li>
+        </ul>
+      </div>
+      <div class="gallery-nav">
+        <button type="button" class="round-btn" id="g-prev" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <span class="gallery-hint">drag to turn · tap a photo</span>
+        <button type="button" class="round-btn" id="g-next" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="rsvp" aria-label="RSVP" data-reveal>
+      <p class="section-title small">Will you celebrate with us?</p>
+      <a class="rsvp-btn" id="rsvp-btn" href="https://docs.google.com/forms/d/1N4yijdkmJqS4JCAT8HbmVimhJuXdrWXO6EnhLT2mRJM" target="_blank" rel="noopener">
+        <span>Click here if you can make it</span>
+        <svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5C12 20.5 1.6 13.9 1.6 7.6 1.6 4.2 4.2 1.8 7.2 1.8c2 0 3.8 1.1 4.8 2.9 1-1.8 2.8-2.9 4.8-2.9 3 0 5.6 2.4 5.6 5.8C22.4 13.9 12 20.5 12 20.5Z"/></svg>
+      </a>
+    </section>
+
+    <!-- Closing -->
+    <footer class="closing" data-reveal>
+      <p class="eyebrow">with love,</p>
+      <p class="script-title closing-names">Josh &amp; Sandra</p>
+      <span class="monogram" aria-hidden="true"></span>
+      <p class="tap-tip" aria-hidden="true">psst — tap anywhere</p>
+    </footer>
+  </div>
+</main>
+
+<!-- Full-size wedding palette -->
+<dialog class="lightbox" id="palette-dialog" aria-label="Our Wedding Palette">
+  <button type="button" class="lightbox-close round-btn" id="palette-close" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <img src="assets/img/wedding-palette.webp" width="1145" height="1374" alt="Our Wedding Palette, full size" loading="lazy" />
+</dialog>
+
+<!-- Audio: original track, untouched -->
+<audio id="song" preload="auto" src="assets/media/our-song.mp3"></audio>
+
+<div class="player" id="player" role="region" aria-label="Music player">
+  <span class="player-progress" aria-hidden="true"><span id="player-progress-bar"></span></span>
+  <button type="button" class="player-play" id="player-play" aria-label="Play our song" aria-pressed="false">
+    <span class="play-ring" aria-hidden="true"></span>
+    <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+    <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+  </button>
+  <span class="player-meta">
+    <span class="player-title">Our Song</span>
+    <canvas class="player-wave" id="player-wave" aria-hidden="true"></canvas>
+  </span>
+  <button type="button" class="player-mute" id="player-mute" aria-label="Mute" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="w1" d="M15 9.2a4 4 0 0 1 0 5.6"/><path class="w2" d="M17.6 6.8a7.4 7.4 0 0 1 0 10.4"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+  </button>
+  <label class="player-vol">
+    <span class="sr-only">Volume</span>
+    <input type="range" id="player-volume" min="0" max="100" value="80" />
+  </label>
+</div>
+
+<noscript><style>.intro{display:none}.invite{display:block!important;opacity:1!important}.player{display:none}</style></noscript>
+
+<script src="js/app.js?v=2" defer></script>
+</body>
+</html>
